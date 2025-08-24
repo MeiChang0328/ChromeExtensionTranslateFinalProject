@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Translate (Zh-TW)",
+  "version": "1.7.5",
+  "description": "快速翻譯並管理單字本：在網頁上選取文字即可翻譯，並能一鍵新增到單字本進行管理。",
+  "icons": {
+    "16": "icons/translatorIcon.png",
+    "48": "icons/translatorIcon.png",
+    "128": "icons/translatorIcon.png"
+  },
+  "action": {
+    "default_title": "Quick Translate",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "https://api.mymemory.translated.net/*",
+    "http://localhost:8080/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}

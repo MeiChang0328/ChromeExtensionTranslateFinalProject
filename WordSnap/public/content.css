@@ -1,0 +1,39 @@
+.qtx-pop {
+    position: fixed;
+    max-width: 320px;
+    background: #111;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px 12px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 2147483647;
+    transform: translate(-50%, -120%);
+}
+.qtx-pop b {
+    color: #9ae6b4;
+}
+.qtx-pop .qtx-src {
+    opacity: 0.9;
+}
+.qtx-pop .qtx-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff4757;
+    color: #fff;
+    border: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+.qtx-pop .qtx-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #cbd5e1;
+    opacity: .8;
+}

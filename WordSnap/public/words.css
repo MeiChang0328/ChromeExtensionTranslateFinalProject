@@ -1,0 +1,114 @@
+:root{
+    --bg:#0f172a;
+    --panel:#1e293b;
+    --text:#ffffff;
+    --muted:#94a3b8;
+    --primary:#3b82f6;
+    --primary2:#1d4ed8;
+    --danger:#ef4444;
+    --border:#334155;
+    --radius:10px;
+    --shadow:0 6px 16px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme: light){
+    :root{
+        --bg:#ffffff;
+        --panel:#f8fafc;
+        --text:#1e293b;
+        --muted:#475569;
+        --primary:#2563eb;
+        --primary2:#1e40af;
+        --danger:#dc2626;
+        --border:#cbd5e1;
+        --shadow:0 4px 10px rgba(15,23,42,.08);
+    }
+}
+
+html,body{
+    margin:0; padding:20px;
+    background:var(--bg);
+    font:14px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC",Arial,sans-serif;
+    color:var(--text);
+}
+.container{ max-width:1000px; margin:0 auto; }
+
+header.app{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+header.app .title{ font-size:20px; font-weight:700; color:var(--primary); }
+header.app .pill{ font-size:12px; color:var(--muted); background:var(--panel); border:1px solid var(--border); border-radius:999px; padding:4px 10px; }
+header.app .status{ margin-left:auto; color:var(--muted); font-size:12px; }
+
+.card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.toolbar{ display:flex; gap:10px; flex-wrap:wrap; padding:12px; border-bottom:1px solid var(--border); background:var(--panel); }
+.input{ display:flex; align-items:center; background:var(--bg); border:1px solid var(--border); padding:4px 8px; border-radius:8px; }
+.input input{ border:0; background:transparent; color:var(--text); font-size:13px; width:160px; }
+
+.btn, button{
+    border:1px solid var(--border);
+    background:var(--panel);
+    color:var(--text);
+    padding:6px 10px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+}
+.btn:hover, button:hover{ border-color:var(--primary); color:var(--primary); }
+.btn.primary{ background:linear-gradient(180deg,var(--primary),var(--primary2)); border:none; color:#fff; }
+.btn.danger{ background:linear-gradient(180deg,#ef4444,#b91c1c); color:#fff; border:none; }
+
+.table-wrap{ overflow:auto; }
+table{ width:100%; border-collapse:collapse; font-size:13px; color:var(--text); }
+thead th{ background:var(--panel); border-bottom:1px solid var(--border); padding:8px 10px; text-align:left; color:var(--muted); }
+tbody td{ padding:8px 10px; border-bottom:1px solid var(--border); }
+tbody tr:hover{ background:rgba(59,130,246,.12); }
+tbody input{ width:100%; padding:6px 8px; background:var(--bg); color:var(--text); border:1px solid var(--border); border-radius:6px; font-size:13px; }
+/* 搜尋框 input */
+.input input{
+    border:0;
+    background:transparent;
+    color:var(--text);
+    font-size:13px;
+    width:140px;   /* ← 原本 160/180，現在縮短 */
+}
+
+/* 表格內 input */
+tbody input{
+    width: 90%;             /* ← 改成佔儲存格 90%，不會太寬 */
+    max-width: 220px;       /* ← 最多 220px，避免太長 */
+    padding:4px 6px;        /* ← padding 縮小 */
+    background:var(--bg);
+    color:var(--text);
+    border:1px solid var(--border);
+    border-radius:6px;
+    font-size:13px;
+}
+/* ===== 儲存回饋 ===== */
+.q-dirty {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--primary) 25%, transparent) !important;
+}
+
+.btn--loading { opacity: .75; pointer-events: none; }
+.btn--ok {
+    filter: drop-shadow(0 0 6px rgba(34,197,94,.45));
+}
+.btn--error {
+    background: linear-gradient(180deg, #ef4444, #b91c1c) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+/* 小抖動提示錯誤 */
+@keyframes shake-kf {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+}
+.shake { animation: shake-kf .4s both; }
