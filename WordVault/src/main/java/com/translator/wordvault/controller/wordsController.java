@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
+//http://localhost:8080/swagger-ui/index.html
+//http://localhost:8080/v3/api-docs
 @Tag(name = "Words API")
 @RestController
 @RequestMapping("/api/words")
@@ -55,11 +57,11 @@ public class wordsController {
     return ResponseEntity.noContent().build();
   }
 
-  @Operation(summary = "依單字查詢（回傳 List）", description = "GET /api/words/search?name=apple")
-  @GetMapping("/search")
-  public ResponseEntity<List<words>> selectWordByName(@RequestParam String name) {
-    return ResponseEntity.ok(service.selectWordByName(name));
-  }
+//  @Operation(summary = "依單字查詢（回傳 List）", description = "GET /api/words/search?name=apple")
+//  @GetMapping("/search")
+//  public ResponseEntity<List<words>> selectWordByName(@RequestParam String name) {
+//    return ResponseEntity.ok(service.selectWordByName(name));
+//  }
 
   @Operation(summary = "依單字查詢（只取第一筆的字串）", description = "GET /api/words/search/one?name=apple")
   @GetMapping("/search/one")
